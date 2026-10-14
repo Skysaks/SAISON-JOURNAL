@@ -1,0 +1,94 @@
+Copyright © 2026 Florian Iglesias. Tous droits réservés. / All rights reserved.
+
+────────────────────────────────────────────────────────────────────────
+FRANÇAIS
+────────────────────────────────────────────────────────────────────────
+
+Ce dépôt n'est pas un logiciel libre. Le code source est publié pour être
+lu, étudié et utilisé à titre personnel. Aucun autre droit n'est accordé.
+
+CE QUI EST PERMIS
+
+  1. Lire, étudier et citer le code, y compris dans un cadre pédagogique,
+     en indiquant la source.
+  2. Télécharger le fichier construit (dist/ma-saison.html ou
+     dist/ligue-des-entrepreneurs.html), l'ouvrir, s'en servir aussi
+     longtemps que souhaité, à titre strictement personnel.
+  3. Construire le projet depuis les sources et le modifier pour son
+     usage personnel, sur ses propres appareils.
+
+CE QUI N'EST PAS PERMIS SANS ACCORD ÉCRIT PRÉALABLE
+
+  4. Redistribuer ce code ou le fichier construit, modifié ou non, par
+     quelque moyen que ce soit.
+  5. Le republier, l'héberger publiquement ou le proposer en service,
+     sous ce nom ou sous un autre.
+  6. En faire un usage commercial, direct ou indirect, y compris au sein
+     d'une organisation.
+  7. Retirer ou modifier la présente mention de droits.
+
+Pour toute demande sortant de ce cadre, contacter l'auteur.
+
+ABSENCE DE GARANTIE
+
+Le logiciel est fourni « en l'état », sans garantie d'aucune sorte,
+expresse ou implicite, y compris mais sans s'y limiter les garanties de
+qualité marchande, d'adéquation à un usage particulier et d'absence de
+contrefaçon. En aucun cas l'auteur ne pourra être tenu responsable d'une
+réclamation, d'un dommage ou d'une autre responsabilité, contractuelle,
+délictuelle ou autre, découlant du logiciel, de son utilisation ou de
+toute autre opération le concernant. L'utilisateur est seul responsable
+de la sauvegarde de ses données.
+
+────────────────────────────────────────────────────────────────────────
+ENGLISH
+────────────────────────────────────────────────────────────────────────
+
+This repository is not open source. The source code is published so that
+it can be read, studied and used personally. No other rights are granted.
+
+PERMITTED
+
+  1. Reading, studying and quoting the code, including for teaching, with
+     attribution.
+  2. Downloading the built file (dist/ma-saison.html or
+     dist/ligue-des-entrepreneurs.html), opening it and using it for as
+     long as wanted, strictly for personal use.
+  3. Building the project from source and modifying it for personal use,
+     on one's own devices.
+
+NOT PERMITTED WITHOUT PRIOR WRITTEN PERMISSION
+
+  4. Redistributing this code or the built file, modified or not, by any
+     means.
+  5. Republishing it, hosting it publicly or offering it as a service,
+     under this name or any other.
+  6. Any commercial use, direct or indirect, including inside an
+     organisation.
+  7. Removing or altering this copyright notice.
+
+For anything outside this scope, contact the author.
+
+NO WARRANTY
+
+The software is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of
+merchantability, fitness for a particular purpose and noninfringement. In
+no event shall the author be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising
+from, out of or in connection with the software or the use or other
+dealings in the software. Backing up your own data is your own
+responsibility.
+
+────────────────────────────────────────────────────────────────────────
+COMPOSANTS TIERS / THIRD-PARTY COMPONENTS
+────────────────────────────────────────────────────────────────────────
+
+Les polices embarquées dans les fichiers construits (Big Shoulders Display,
+Instrument Sans, Archivo Narrow) restent sous SIL Open Font License 1.1 ;
+leurs textes de licence figurent dans docs/licences/. La présente mention
+de droits ne s'applique pas à elles.
+
+The fonts embedded in the built files (Big Shoulders Display, Instrument
+Sans, Archivo Narrow) remain under the SIL Open Font License 1.1; their
+licence texts are in docs/licences/. This notice does not apply to them.

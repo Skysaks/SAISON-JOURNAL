@@ -1,0 +1,37 @@
+/* ===== Thème Ligue des Entrepreneurs : tableau marine, accent cobalt, récompenses cuivre ===== */
+:root{
+  --bg:#F1F3F7;--surface:#FFFFFF;--surface-2:#F5F7FA;--ink:#121A2B;--ink-2:#344056;--muted:#586379;--line:#DDE2EA;--line-2:#C5CCD8;
+  --accent:#1F4FD1;--accent-mid:#7C9BEA;--accent-ink:#FFFFFF;--accent-soft:#E6ECFB;
+  --gold:#8C4F14;--gold-bar:#D0843A;--gold-soft:#F8EBDD;
+  --rest:#56707F;--rest-bg:#E3EBEF;
+  --board:#0E1726;--board-ink:#EEF2F9;--board-muted:#A7B1C4;--board-line:#26324A;
+  --f-d:"Archivo Narrow","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0F18;--surface:#111826;--surface-2:#172031;--ink:#E9EEF7;--ink-2:#C9D2E2;--muted:#9AA6BB;--line:#222C3E;--line-2:#323D52;
+    --accent:#7F9CF5;--accent-mid:#4A67C9;--accent-ink:#0A1026;--accent-soft:#18223A;
+    --gold:#E8A866;--gold-bar:#E39A52;--gold-soft:#2C1F12;
+    --rest:#9DB8C6;--rest-bg:#1A262D;
+    --board:#0F1A2B;--board-ink:#EEF2F9;--board-muted:#A7B1C4;--board-line:#26324A;
+  }
+}
+:root[data-theme="dark"],body.th-dark{
+  --bg:#0A0F18;--surface:#111826;--surface-2:#172031;--ink:#E9EEF7;--ink-2:#C9D2E2;--muted:#9AA6BB;--line:#222C3E;--line-2:#323D52;
+  --accent:#7F9CF5;--accent-mid:#4A67C9;--accent-ink:#0A1026;--accent-soft:#18223A;
+  --gold:#E8A866;--gold-bar:#E39A52;--gold-soft:#2C1F12;
+  --rest:#9DB8C6;--rest-bg:#1A262D;
+  --board:#0F1A2B;--board-ink:#EEF2F9;--board-muted:#A7B1C4;--board-line:#26324A;
+}
+body.th-light{
+  --bg:#F1F3F7;--surface:#FFFFFF;--surface-2:#F5F7FA;--ink:#121A2B;--ink-2:#344056;--muted:#586379;--line:#DDE2EA;--line-2:#C5CCD8;
+  --accent:#1F4FD1;--accent-mid:#7C9BEA;--accent-ink:#FFFFFF;--accent-soft:#E6ECFB;
+  --gold:#8C4F14;--gold-bar:#D0843A;--gold-soft:#F8EBDD;
+  --rest:#56707F;--rest-bg:#E3EBEF;
+}
+/* textes posés sur le cuivre */
+:root{--on-gold:#0E1726}
+/* portefeuille : papier de registre au lieu de la pelouse */
+.pitch{background:repeating-linear-gradient(180deg,var(--surface-2) 0 31px,var(--line) 31px 32px)}
+.pitch-l{letter-spacing:.08em}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(208,132,58,.7)}100%{box-shadow:0 0 0 14px rgba(208,132,58,0)}}

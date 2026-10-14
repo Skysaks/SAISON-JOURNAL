@@ -1,0 +1,81 @@
+# Vérifie que le dépôt se construit depuis zéro, qu'aucune traduction ne manque, que les pages restent
+# autonomes (aucune ressource externe) et qu'aucune trace personnelle évidente n'est publiée.
+# Les suites Playwright ne tournent pas ici : elles ont besoin d'un navigateur,
+# et ce contrôle doit rester rapide et sans surprise.
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Installer les outils de build
+        working-directory: tools
+        run: npm ci
+
+      - name: Dépendances sans faille connue
+        working-directory: tools
+        run: npm audit --audit-level=moderate
+
+      - name: Aucune trace personnelle évidente
+        run: python3 tools/check-prive.py .
+
+      - name: Construire
+        run: python3 build.py | tee build.log
+
+      - name: Aucune traduction manquante
+        run: |
+          if grep -q "traductions manquantes" build.log; then
+            echo "::error::Des textes ne sont pas traduits — voir dist/app-i18n.txt"
+            cat dist/app-i18n.txt
+            exit 1
+          fi
+
+      - name: Les deux pages sont produites, autonomes et à jour
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          for name in ('ma-saison.html', 'ligue-des-entrepreneurs.html'):
+              p = pathlib.Path('dist') / name
+              assert p.exists(), f'{name} manquant'
+              html = p.read_text(encoding='utf-8')
+              assert len(html) > 500_000, f'{name} anormalement petit ({len(html)} octets)'
+              assert '<meta charset="utf-8">' in html, f'{name} sans charset'
+              head = html.split('<body', 1)[0]
+              assert not re.search(r'<(link|script)[^>]*\b(href|src)=["\']?https?:', head, re.I), f'{name} charge une ressource externe'
+              assert 'fonts.googleapis' not in html, f'{name} appelle Google Fonts'
+              print(f'{name} : {len(html):,} octets')
+          PY
+          # les fichiers construits sont versionnés : ils doivent correspondre aux sources
+          git diff --exit-code -- dist/ma-saison.html dist/ligue-des-entrepreneurs.html \
+            || { echo "::error::dist/ n'est pas à jour : relancer python3 build.py et committer"; exit 1; }
+
+      - name: Générer le jeu de démonstration
+        run: python3 test/demo-data.py

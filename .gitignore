@@ -1,0 +1,42 @@
+# Dépendances (reconstruites par `cd tools && npm install`)
+node_modules/
+# (tools/package-lock.json est suivi : la CI utilise `npm ci`)
+
+# Intermédiaires de build : seuls les deux fichiers construits sont suivis
+dist/*
+!dist/ma-saison.html
+!dist/ligue-des-entrepreneurs.html
+
+# Données de démonstration : régénérées par `python3 test/demo-data.py`
+dist/demo.json
+dist/demo-neutral.json
+
+# Sorties de tests
+test-results/
+playwright-report/
+*.png
+!docs/img/*.png
+
+# Systèmes et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+__pycache__/
+*.py[cod]
+
+# Jamais : exports personnels du tableau de bord
+*-sauvegarde-*.json
+ma-saison-*.json
+ma-saison-*.csv
+
+# Termes personnels du contrôle de confidentialité (jamais publiés)
+.prive-termes.txt
+
+# Environnement et secrets
+.env
+.env.*
+*.pem
+*.key
+*.log
