@@ -6,7 +6,7 @@ const LIGUE = PAGE.startsWith('ligue');
 const KEY = LIGUE ? 'ligue-entrepreneurs-v1' : 'ma-saison-v2';
 const DATA = fs.readFileSync(__dirname + '/../dist/' + (LIGUE ? 'demo-demo-neutral.json' : 'demo.json'), 'utf8');
 const URL = 'file://' + __dirname + '/../dist/' + PAGE;
-const SHOTS = process.env.SHOTS || '/tmp/claude-0';
+const SHOTS = process.env.SHOTS || require('os').tmpdir();
 const out = [], errs = [];
 const ok = (c, m) => out.push((c ? 'OK   ' : 'FAIL ') + m);
 (async () => {

@@ -5,7 +5,7 @@ const fs = require('fs');
 const DATA = fs.readFileSync(__dirname + '/../dist/demo.json', 'utf8');
 const KEY = 'ma-saison-v2';
 const URL = 'file://' + __dirname + '/../dist/ma-saison.html';
-const SHOTS = process.env.SHOTS || '/tmp/claude-0';
+const SHOTS = process.env.SHOTS || require('os').tmpdir();
 const LANGS = (process.env.LANGS || 'fr,en,es').split(',');
 const ONLY = process.env.THEMES ? process.env.THEMES.split(',') : null;
 const out = [], errs = [];

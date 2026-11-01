@@ -4,7 +4,7 @@ const fs = require('fs');
 const DATA = fs.readFileSync(__dirname + '/../dist/demo-neutral.json', 'utf8');
 const URL = 'file://' + __dirname + '/../dist/ligue-des-entrepreneurs.html';
 const KEY = 'ligue-entrepreneurs-v1';
-const SHOTS = process.env.SHOTS || '/tmp/claude-0';
+const SHOTS = process.env.SHOTS || require('os').tmpdir();
 const out = [], errs = [], leaks = new Map();
 const ok = (c, m) => out.push((c ? 'OK   ' : 'FAIL ') + m);
 const BANNED = /(?<![\p{L}\d])(matchs?|coups?|coup d.envoi|full ?time|mercato|compo|capitaine|titulaires?|remplaçants?|vestiaire|foot|football|agents?|joueurs?|clubs?|coachs?|tribune|banc|brassard|trêves?|cups?|chapeau|sifflet|terrain|ballon|réserve|district|ligue [12]|championnat|poste|avant-match|après-match|recruteurs?|tournoi|fifa|pelouse|stade|manager)(?![\p{L}\d])/giu;

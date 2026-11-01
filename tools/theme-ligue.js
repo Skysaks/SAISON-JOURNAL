@@ -115,7 +115,7 @@ module.exports = {
     ['Donne ton premier coup d’envoi', 'Ouvre ta première séance'],
     ['Nomme ton capitaine', 'Désigne ton projet phare'],
     ['<optgroup label="Coups du jour">', '<optgroup label="Leviers du jour">'],
-    // --- consigne de l'analyste (Claude)
+    // --- consigne de l'analyste
     ['conçu comme une saison de football.', "conçu comme une ligue d'entrepreneurs : chaque jour est une séance notée sur 100 (victoire, nul ou défaite), les projets forment un portefeuille."],
     // --- ouverture / clôture (ex coup d'envoi / Full Time)
     ['Premier match à jouer : choisis tes 3 coups et donne le coup d’envoi.', 'Première séance : choisis tes 3 leviers, puis ouvre-la.'],

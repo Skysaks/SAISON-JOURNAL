@@ -747,9 +747,9 @@
   "en": "Analytics",
   "es": "Análisis"
  },
- "<div class=\"card\" style=\"margin-top:16px\"><p>Cette vue n'a pas pu s'afficher. Recharge la page ; si le problème persiste, signale-le à Claude.</p></div>": {
-  "en": "<div class=\"card\" style=\"margin-top:16px\"><p>This view couldn't be displayed. Reload the page; if the problem persists, report it to Claude.</p></div>",
-  "es": "<div class=\"card\" style=\"margin-top:16px\"><p>Esta vista no se ha podido mostrar. Recarga la página; si el problema persiste, avisa a Claude.</p></div>"
+ "<div class=\"card\" style=\"margin-top:16px\"><p>Cette vue n'a pas pu s'afficher. Recharge la page ou ouvre une autre vue.</p></div>": {
+  "en": "<div class=\"card\" style=\"margin-top:16px\"><p>This view couldn't be displayed. Reload the page or open another view.</p></div>",
+  "es": "<div class=\"card\" style=\"margin-top:16px\"><p>Esta vista no se ha podido mostrar. Recarga la página o abre otra vista.</p></div>"
  },
  "+{0} XP": {
   "en": "+{0} XP",

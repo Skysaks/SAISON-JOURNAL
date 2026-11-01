@@ -1,6 +1,7 @@
 // Parcours complet en mode local (données migrées injectées), horloge figée.
 const { chromium } = require('playwright');
 const fs = require('fs');
+const SHOTS = process.env.SHOTS || require('os').tmpdir();
 const DATA = fs.readFileSync(__dirname + '/../dist/demo.json', 'utf8');
 const URL = 'file://' + __dirname + '/../dist/ma-saison.html';
 const out = [], errs = [];
@@ -143,7 +144,7 @@ const ok = (c, m) => out.push((c ? 'OK   ' : 'FAIL ') + m);
   await p.fill('#qa-note', 'Idée : format vidéo sur les règlements'); await click('form[data-f="quickAdd"] button[type=submit]');
   await p.keyboard.press('m'); await p.waitForTimeout(200);
   ok((await txt('#fulltime')).includes('format vidéo'), 'Note rapide rangée dans le Full Time');
-  await p.screenshot({ path: '/tmp/claude-0/v2-match-desktop.png', fullPage: false });
+  await p.screenshot({ path: `${SHOTS}/v2-match-desktop.png`, fullPage: false });
 
   // --- Jour suivant : figeage du match, forme, série
   await p.clock.setFixedTime(new Date('2026-09-23T08:00:00+02:00'));
@@ -165,9 +166,9 @@ const ok = (c, m) => out.push((c ? 'OK   ' : 'FAIL ') + m);
   ok(rec.startsWith('13J 1V') && rec.includes('12F'), 'Bilan après absence : ' + rec);
   ok(await p.evaluate(() => Object.keys(S.matches['2026-10'].days).length >= 4), 'Forfaits figés en octobre');
   for (const v of ['semaine', 'mois', 'saison', 'carriere', 'analytics']) { await click('[data-tab="perf"]'); await click(`[data-a="perf"][data-v="${v}"]`); ok(!(await txt('#view')).includes("n'a pas pu"), 'Après absence › ' + v); }
-  await p.screenshot({ path: '/tmp/claude-0/v2-carriere.png', fullPage: false });
+  await p.screenshot({ path: `${SHOTS}/v2-carriere.png`, fullPage: false });
   await click('[data-a="perf"][data-v="analytics"]');
-  await p.screenshot({ path: '/tmp/claude-0/v2-analytics.png', fullPage: true });
+  await p.screenshot({ path: `${SHOTS}/v2-analytics.png`, fullPage: true });
   // correction d'un jour passé : déclarer un imprévu
   await p.evaluate(() => { ui.day = '2026-10-01'; ui.tab = 'match'; render(); });
   await click('[data-a="markImprevu"]'); await p.fill('#imp-reason', 'Urgence familiale'); await click('form[data-f="imprevu"] button[type=submit]');
@@ -180,7 +181,7 @@ const ok = (c, m) => out.push((c ? 'OK   ' : 'FAIL ') + m);
   const sw = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   ok(sw <= 0, 'Mobile : pas de défilement horizontal (' + sw + ')');
   ok(await p.locator('.bnav .bn').count() === 5, 'Mobile : 5 entrées de navigation');
-  await p.screenshot({ path: '/tmp/claude-0/v2-mobile.png', fullPage: false });
+  await p.screenshot({ path: `${SHOTS}/v2-mobile.png`, fullPage: false });
   await click('[data-a="more"]');
   ok(await p.locator('.more-b').count() >= 5, 'Mobile : menu Plus');
   await click('.more-b[data-tab="reseau"]');

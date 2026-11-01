@@ -116,7 +116,7 @@ function render() {
   $hdr.innerHTML = headerHtml();
   let html;
   try { html = ui.tab === 'perf' ? perfHtml() : (VIEWS[ui.tab] || VIEWS.match)(); }
-  catch (e) { console.error(e); html = `<div class="card" style="margin-top:16px"><p>Cette vue n'a pas pu s'afficher. Recharge la page ; si le problème persiste, signale-le à Claude.</p></div>`; }
+  catch (e) { console.error(e); html = `<div class="card" style="margin-top:16px"><p>Cette vue n'a pas pu s'afficher. Recharge la page ou ouvre une autre vue.</p></div>`; }
   $view.innerHTML = html;
   $bnav.innerHTML = bottomNavHtml();
   $ovl.innerHTML = overlayHtml();
