@@ -6,6 +6,8 @@ Trois actions choisies le matin, une routine, un rituel de clôture le soir. Le 
 
 Une seule page HTML, sans serveur, sans compte, sans dépendance au moment de l'exécution. Tes données restent chez toi.
 
+**Démonstration** : [skysaks.github.io/SAISON-JOURNAL](https://skysaks.github.io/SAISON-JOURNAL/) (Ma Saison) · [Ligue des entrepreneurs](https://skysaks.github.io/SAISON-JOURNAL/ligue-des-entrepreneurs.html).
+
 ![L'écran du jour](docs/img/match.png)
 
 ---
